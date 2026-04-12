@@ -59,16 +59,10 @@
 ---
 
 ## プライバシーポリシー
-docs/privacy-policy.html をWebにホスティングしてURLを取得する必要あり。
+✅ GitHub Pagesで公開済み:
+https://akiratakahara.github.io/ShittaGekiRei/privacy-policy.html
 
-### 方法1: GitHub Pages（無料）
-1. GitHubにリポジトリを作成
-2. docs/privacy-policy.html をプッシュ
-3. Settings → Pages → Source: main branch /docs
-4. URL: https://[username].github.io/ShittaGekiRei/privacy-policy.html
-
-### 方法2: そのまま直接入力
-App Store Connectの「App情報」→「プライバシーポリシーURL」に設定
+App Store Connect →「App情報」→「プライバシーポリシーURL」に上記URLを貼り付け
 
 ---
 
