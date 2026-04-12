@@ -1,0 +1,295 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7A78299B80594B4585ACB722 = {isa = PBXBuildFile; fileRef = 7B36B6ACE85143A4858DA4CA; };
+		89301C7EC8C44BCAAD812643 = {isa = PBXBuildFile; fileRef = 4ABA99F39E6A495FB1417D4F; };
+		07C6C856CB0F4A8B8FF5E856 = {isa = PBXBuildFile; fileRef = 8EDF0A523BAB4AF7B82EC8BF; };
+		802492E70ED9486D9B2215D3 = {isa = PBXBuildFile; fileRef = 983179A40A1F4DD1A3717A01; };
+		A229282787884236A63F04CD = {isa = PBXBuildFile; fileRef = 4DF9F4E8F0334D9B9749DF63; };
+		8658B09789794883BF34F502 = {isa = PBXBuildFile; fileRef = 278FA3638AEA4DFBA5CCF4FB; };
+		5D483EC15957499397A7F446 = {isa = PBXBuildFile; fileRef = F5F92CAF691B46F190F62BA4; };
+		2845FC39732C47FF8CF36F3B = {isa = PBXBuildFile; fileRef = CE6A07D8F2BC4ED4BE8BDC57; };
+		A1B2C3D4E5F64789A1B2C3D4 = {isa = PBXBuildFile; fileRef = D4C3B2A1F6E54D78B2A1C3D4; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7B36B6ACE85143A4858DA4CA = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShittaGekiReiApp.swift; path = ShittaGekiRei/ShittaGekiReiApp.swift; sourceTree = "<group>"; };
+		4ABA99F39E6A495FB1417D4F = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ShittaGekiRei/ContentView.swift; sourceTree = "<group>"; };
+		8EDF0A523BAB4AF7B82EC8BF = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageBank.swift; path = ShittaGekiRei/MessageBank.swift; sourceTree = "<group>"; };
+		983179A40A1F4DD1A3717A01 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationManager.swift; path = ShittaGekiRei/NotificationManager.swift; sourceTree = "<group>"; };
+		4DF9F4E8F0334D9B9749DF63 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlarmManager.swift; path = ShittaGekiRei/AlarmManager.swift; sourceTree = "<group>"; };
+		278FA3638AEA4DFBA5CCF4FB = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoreManager.swift; path = ShittaGekiRei/StoreManager.swift; sourceTree = "<group>"; };
+		F5F92CAF691B46F190F62BA4 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaywallView.swift; path = ShittaGekiRei/PaywallView.swift; sourceTree = "<group>"; };
+		CE6A07D8F2BC4ED4BE8BDC57 = {isa = PBXFileReference; lastKnownFileType = com.apple.storekit2-file; name = Configuration.storekit; path = ShittaGekiRei/Configuration.storekit; sourceTree = "<group>"; };
+		55B57F146631437D90FB7CA8 = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = ShittaGekiRei.app; path = ShittaGekiRei.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4C3B2A1F6E54D78B2A1C3D4 = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ShittaGekiRei/Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B9BAA0EC1EAC446592135BE6 = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		10B33FB7515045E2B6B0577A = {
+			isa = PBXGroup;
+			children = (
+				7B36B6ACE85143A4858DA4CA,
+				4ABA99F39E6A495FB1417D4F,
+				8EDF0A523BAB4AF7B82EC8BF,
+				983179A40A1F4DD1A3717A01,
+				4DF9F4E8F0334D9B9749DF63,
+				278FA3638AEA4DFBA5CCF4FB,
+				F5F92CAF691B46F190F62BA4,
+				CE6A07D8F2BC4ED4BE8BDC57,
+				D4C3B2A1F6E54D78B2A1C3D4,
+				BACFF3C0F67F47EAA22F2C22,
+			);
+			sourceTree = "<group>";
+		};
+		BACFF3C0F67F47EAA22F2C22 = {
+			isa = PBXGroup;
+			children = (
+				55B57F146631437D90FB7CA8,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5E80F1A285F94E5D84C1D847 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F96A7559DBDA49749937DDAF;
+			buildPhases = (
+				201AD577AE0E45C4AB7A61CF,
+				B9BAA0EC1EAC446592135BE6,
+				D1F54CB733074267B0EE624D,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShittaGekiRei;
+			packageProductDependencies = (
+			);
+			productName = ShittaGekiRei;
+			productReference = 55B57F146631437D90FB7CA8;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E4B59FCBF4D5495D87BC7B01 = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					5E80F1A285F94E5D84C1D847 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = B895589EE33F428481CAE315;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = ja;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				ja,
+				Base,
+			);
+			mainGroup = 10B33FB7515045E2B6B0577A;
+			productRefGroup = BACFF3C0F67F47EAA22F2C22;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5E80F1A285F94E5D84C1D847,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D1F54CB733074267B0EE624D = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2845FC39732C47FF8CF36F3B,
+				A1B2C3D4E5F64789A1B2C3D4,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		201AD577AE0E45C4AB7A61CF = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A78299B80594B4585ACB722,
+				89301C7EC8C44BCAAD812643,
+				07C6C856CB0F4A8B8FF5E856,
+				802492E70ED9486D9B2215D3,
+				A229282787884236A63F04CD,
+				8658B09789794883BF34F502,
+				5D483EC15957499397A7F446,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		00508562802C4A38837D5C1C = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSET_CATALOG_COMPILER_SKIP_APP_STORE_DEPLOYMENT = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("DEBUG=1", "$(inherited)");
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D6ACFD2B7C8143928A628333 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSET_CATALOG_COMPILER_SKIP_APP_STORE_DEPLOYMENT = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		AC7BE212F99143E58260FE13 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSET_CATALOG_COMPILER_ENABLE_ON_DEMAND_RESOURCES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2TZDX2F532;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_KEY_CFBundleIconName = AppIcon;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_NSUserNotificationUsageDescription = "月曜・木曜の朝と金曜の夜に叱咤激励通知を送ります。";
+				SWIFT_VERSION = 5.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.artvalue.shittagekirei";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STORE_KIT_CONFIGURATION = "ShittaGekiRei/Configuration.storekit";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		CCA2C416641A43F9812AB21D = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSET_CATALOG_COMPILER_ENABLE_ON_DEMAND_RESOURCES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2TZDX2F532;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_KEY_CFBundleIconName = AppIcon;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_NSUserNotificationUsageDescription = "月曜・木曜の朝と金曜の夜に叱咤激励通知を送ります。";
+				SWIFT_VERSION = 5.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.artvalue.shittagekirei";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STORE_KIT_CONFIGURATION = "ShittaGekiRei/Configuration.storekit";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B895589EE33F428481CAE315 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00508562802C4A38837D5C1C,
+				D6ACFD2B7C8143928A628333,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F96A7559DBDA49749937DDAF = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC7BE212F99143E58260FE13,
+				CCA2C416641A43F9812AB21D,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = E4B59FCBF4D5495D87BC7B01;
+}
