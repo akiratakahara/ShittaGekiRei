@@ -40,6 +40,7 @@ final class NotificationManager: ObservableObject {
         if let data = UserDefaults.standard.data(forKey: storageKey),
            let decoded = try? JSONDecoder().decode([ScheduleEntry].self, from: data) {
             schedules = decoded
+            sortSchedules()
         } else {
             // デフォルトスケジュール
             schedules = [
@@ -52,8 +53,20 @@ final class NotificationManager: ObservableObject {
     }
 
     func saveSchedules() {
+        sortSchedules()
         if let encoded = try? JSONEncoder().encode(schedules) {
             UserDefaults.standard.set(encoded, forKey: storageKey)
+        }
+    }
+
+    private func sortSchedules() {
+        // 月曜始まり（2=月,3=火,...,7=土,1=日）→ 時刻順
+        schedules.sort {
+            let wd0 = $0.weekday == 1 ? 8 : $0.weekday
+            let wd1 = $1.weekday == 1 ? 8 : $1.weekday
+            if wd0 != wd1 { return wd0 < wd1 }
+            if $0.hour != $1.hour { return $0.hour < $1.hour }
+            return $0.minute < $1.minute
         }
     }
 
