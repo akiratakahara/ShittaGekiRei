@@ -103,24 +103,35 @@ final class NotificationManager: ObservableObject {
         let center = UNUserNotificationCenter.current()
         center.removePendingNotificationRequests(withIdentifiers: [id])
 
-        let content = UNMutableNotificationContent()
-        content.title = mode.notificationTitle
-        content.body  = MessageBank.random(for: mode)
-        content.sound = .defaultCritical
-        content.interruptionLevel = .timeSensitive
-        content.userInfo = ["mode": mode.rawValue]
+        let message = MessageBank.random(for: mode)
 
-        var components = DateComponents()
-        components.weekday = entry.weekday
-        components.hour    = entry.hour
-        components.minute  = entry.minute
-        components.second  = 0
+        // 音声ファイルを事前生成してから通知をスケジュール
+        SpeechGenerator.shared.generateSpeech(message: message, id: entry.id.uuidString) { filename in
+            let content = UNMutableNotificationContent()
+            content.title = mode.notificationTitle
+            content.body  = message
+            content.interruptionLevel = .timeSensitive
+            content.userInfo = ["mode": mode.rawValue]
 
-        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
-        let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
+            // カスタム音声が生成できた場合はそれを使用、なければデフォルト
+            if let filename = filename {
+                content.sound = UNNotificationSound(named: UNNotificationSoundName(filename))
+            } else {
+                content.sound = .defaultCritical
+            }
 
-        center.add(request) { error in
-            if let error { print("Notification schedule error [\(id)]: \(error)") }
+            var components = DateComponents()
+            components.weekday = entry.weekday
+            components.hour    = entry.hour
+            components.minute  = entry.minute
+            components.second  = 0
+
+            let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
+            let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
+
+            center.add(request) { error in
+                if let error { print("Notification schedule error [\(id)]: \(error)") }
+            }
         }
     }
 
