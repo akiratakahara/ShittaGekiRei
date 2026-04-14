@@ -2,7 +2,7 @@
   "identifier" : "叱咤激励 StoreKit Config",
   "nonConsumableProducts" : [
     {
-      "displayPrice" : "250",
+      "displayPrice" : "300",
       "familySharable" : true,
       "internalID" : "shittagekirei_fullunlock",
       "localizations" : [
