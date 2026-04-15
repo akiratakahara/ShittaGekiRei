@@ -372,16 +372,6 @@ struct SettingsView: View {
                     }
 
                     Section {
-                        Button("通知を再スケジュール") {
-                            notif.scheduleAll()
-                        }
-                        .foregroundColor(Color(hex: "CC0000"))
-                        Button("全通知をキャンセル", role: .destructive) {
-                            notif.cancelAll()
-                        }
-                    } header: { Text("操作").foregroundColor(.gray) }
-
-                    Section {
                         VStack(alignment: .leading, spacing: 4) {
                             Text("メッセージバンク")
                                 .foregroundColor(.white)
