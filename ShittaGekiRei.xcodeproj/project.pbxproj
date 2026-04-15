@@ -12,9 +12,6 @@
 		07C6C856CB0F4A8B8FF5E856 = {isa = PBXBuildFile; fileRef = 8EDF0A523BAB4AF7B82EC8BF; };
 		802492E70ED9486D9B2215D3 = {isa = PBXBuildFile; fileRef = 983179A40A1F4DD1A3717A01; };
 		A229282787884236A63F04CD = {isa = PBXBuildFile; fileRef = 4DF9F4E8F0334D9B9749DF63; };
-		8658B09789794883BF34F502 = {isa = PBXBuildFile; fileRef = 278FA3638AEA4DFBA5CCF4FB; };
-		5D483EC15957499397A7F446 = {isa = PBXBuildFile; fileRef = F5F92CAF691B46F190F62BA4; };
-		2845FC39732C47FF8CF36F3B = {isa = PBXBuildFile; fileRef = CE6A07D8F2BC4ED4BE8BDC57; };
 		B1A2C3D4E5F647890ABCDEF1 = {isa = PBXBuildFile; fileRef = C1D2E3F4A5B647890ABCDEF2; };
 		A1B2C3D4E5F64789A1B2C3D4 = {isa = PBXBuildFile; fileRef = D4C3B2A1F6E54D78B2A1C3D4; };
 /* End PBXBuildFile section */
@@ -25,9 +22,6 @@
 		8EDF0A523BAB4AF7B82EC8BF = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageBank.swift; path = ShittaGekiRei/MessageBank.swift; sourceTree = "<group>"; };
 		983179A40A1F4DD1A3717A01 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationManager.swift; path = ShittaGekiRei/NotificationManager.swift; sourceTree = "<group>"; };
 		4DF9F4E8F0334D9B9749DF63 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlarmManager.swift; path = ShittaGekiRei/AlarmManager.swift; sourceTree = "<group>"; };
-		278FA3638AEA4DFBA5CCF4FB = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoreManager.swift; path = ShittaGekiRei/StoreManager.swift; sourceTree = "<group>"; };
-		F5F92CAF691B46F190F62BA4 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaywallView.swift; path = ShittaGekiRei/PaywallView.swift; sourceTree = "<group>"; };
-		CE6A07D8F2BC4ED4BE8BDC57 = {isa = PBXFileReference; lastKnownFileType = com.apple.storekit2-file; name = Configuration.storekit; path = ShittaGekiRei/Configuration.storekit; sourceTree = "<group>"; };
 		C1D2E3F4A5B647890ABCDEF2 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpeechGenerator.swift; path = ShittaGekiRei/SpeechGenerator.swift; sourceTree = "<group>"; };
 		55B57F146631437D90FB7CA8 = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = ShittaGekiRei.app; path = ShittaGekiRei.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C3B2A1F6E54D78B2A1C3D4 = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ShittaGekiRei/Assets.xcassets; sourceTree = "<group>"; };
@@ -52,10 +46,7 @@
 				8EDF0A523BAB4AF7B82EC8BF,
 				983179A40A1F4DD1A3717A01,
 				4DF9F4E8F0334D9B9749DF63,
-				278FA3638AEA4DFBA5CCF4FB,
-				F5F92CAF691B46F190F62BA4,
 				C1D2E3F4A5B647890ABCDEF2,
-				CE6A07D8F2BC4ED4BE8BDC57,
 				D4C3B2A1F6E54D78B2A1C3D4,
 				BACFF3C0F67F47EAA22F2C22,
 			);
@@ -130,7 +121,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2845FC39732C47FF8CF36F3B,
 				A1B2C3D4E5F64789A1B2C3D4,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,8 +137,6 @@
 				07C6C856CB0F4A8B8FF5E856,
 				802492E70ED9486D9B2215D3,
 				A229282787884236A63F04CD,
-				8658B09789794883BF34F502,
-				5D483EC15957499397A7F446,
 				B1A2C3D4E5F647890ABCDEF1,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,7 +209,7 @@
 				ASSET_CATALOG_COMPILER_ENABLE_ON_DEMAND_RESOURCES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2TZDX2F532;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -238,7 +226,6 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.artvalue.shittagekirei";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				STORE_KIT_CONFIGURATION = "ShittaGekiRei/Configuration.storekit";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -250,7 +237,7 @@
 				ASSET_CATALOG_COMPILER_ENABLE_ON_DEMAND_RESOURCES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2TZDX2F532;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -267,7 +254,6 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.artvalue.shittagekirei";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				STORE_KIT_CONFIGURATION = "ShittaGekiRei/Configuration.storekit";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
