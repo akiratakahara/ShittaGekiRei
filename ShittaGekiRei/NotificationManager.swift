@@ -148,12 +148,29 @@ final class NotificationManager: ObservableObject {
         }
     }
 
-    // MARK: - Add / Remove / Toggle
+    // MARK: - Add / Remove / Toggle / Update
     func addSchedule(mode: NotificationMode, weekday: Int, hour: Int, minute: Int) {
         let entry = ScheduleEntry(mode: mode.rawValue, weekday: weekday, hour: hour, minute: minute)
         schedules.append(entry)
         saveSchedules()
         scheduleEntry(entry)
+    }
+
+    func updateSchedule(id: UUID, mode: NotificationMode, weekday: Int, hour: Int, minute: Int) {
+        guard let idx = schedules.firstIndex(where: { $0.id == id }) else { return }
+        // 既存通知をキャンセル
+        let notifID = "shittagekirei.schedule.\(id.uuidString)"
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [notifID])
+
+        schedules[idx].mode = mode.rawValue
+        schedules[idx].weekday = weekday
+        schedules[idx].hour = hour
+        schedules[idx].minute = minute
+        saveSchedules()
+
+        if schedules[idx].isEnabled {
+            scheduleEntry(schedules[idx])
+        }
     }
 
     func removeSchedule(id: UUID) {

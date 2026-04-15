@@ -322,6 +322,7 @@ struct CountdownRow: View {
 struct SettingsView: View {
     @StateObject private var notif = NotificationManager.shared
     @State private var showAddSchedule = false
+    @State private var editingEntry: ScheduleEntry?
 
     var body: some View {
         NavigationView {
@@ -346,7 +347,9 @@ struct SettingsView: View {
 
                     Section {
                         ForEach(notif.schedules) { entry in
-                            ScheduleRow(entry: entry)
+                            ScheduleRow(entry: entry) {
+                                editingEntry = entry
+                            }
                         }
                         .onDelete { indexSet in
                             let ids = indexSet.map { notif.schedules[$0].id }
@@ -362,7 +365,11 @@ struct SettingsView: View {
                             }
                             .foregroundColor(Color(hex: "CC0000"))
                         }
-                    } header: { Text("定期通知スケジュール").foregroundColor(.gray) }
+                    } header: { Text("定期通知スケジュール").foregroundColor(.gray) } footer: {
+                        Text("行をタップで編集、左スワイプで削除")
+                            .font(.caption2)
+                            .foregroundColor(.gray.opacity(0.6))
+                    }
 
                     Section {
                         Button("通知を再スケジュール") {
@@ -390,7 +397,11 @@ struct SettingsView: View {
             .navigationTitle("設定")
             .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $showAddSchedule) {
-                AddScheduleSheet()
+                ScheduleEditSheet()
+                    .presentationDetents([.medium])
+            }
+            .sheet(item: $editingEntry) { entry in
+                ScheduleEditSheet(editingEntry: entry)
                     .presentationDetents([.medium])
             }
         }
@@ -400,6 +411,7 @@ struct SettingsView: View {
 // MARK: - Schedule Row
 struct ScheduleRow: View {
     let entry: ScheduleEntry
+    let onTapEdit: () -> Void
     @StateObject private var notif = NotificationManager.shared
 
     private var modeColor: Color {
@@ -413,40 +425,66 @@ struct ScheduleRow: View {
 
     var body: some View {
         HStack {
-            Text(entry.modeEnum?.emoji ?? "📌")
-                .font(.title3)
-            VStack(alignment: .leading, spacing: 2) {
-                Text("\(entry.weekdayName)曜日 \(entry.timeString)")
-                    .font(.system(size: 15, weight: .semibold))
-                    .foregroundColor(.white)
-                Text(entry.modeEnum?.displayName ?? "不明")
-                    .font(.system(size: 12))
-                    .foregroundColor(modeColor)
+            Button(action: onTapEdit) {
+                HStack {
+                    Text(entry.modeEnum?.emoji ?? "📌")
+                        .font(.title3)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("\(entry.weekdayName)曜日 \(entry.timeString)")
+                            .font(.system(size: 15, weight: .semibold))
+                            .foregroundColor(.white)
+                        Text(entry.modeEnum?.displayName ?? "不明")
+                            .font(.system(size: 12))
+                            .foregroundColor(modeColor)
+                    }
+                    Spacer()
+                }
+                .contentShape(Rectangle())
             }
-            Spacer()
+            .buttonStyle(.plain)
+
             Toggle("", isOn: Binding(
                 get: { entry.isEnabled },
                 set: { _ in notif.toggleSchedule(id: entry.id) }
             ))
             .tint(modeColor)
+            .labelsHidden()
         }
         .listRowBackground(Color.white.opacity(0.04))
     }
 }
 
-// MARK: - Add Schedule Sheet
-struct AddScheduleSheet: View {
+// MARK: - Schedule Edit Sheet (新規追加と編集の両方に対応)
+struct ScheduleEditSheet: View {
     @StateObject private var notif = NotificationManager.shared
     @Environment(\.dismiss) private var dismiss
 
-    @State private var selectedMode: NotificationMode = .monday
-    @State private var selectedWeekday = 2  // 月曜
-    @State private var selectedTime = Date()
+    let editingEntry: ScheduleEntry?  // nil = 新規追加, 値あり = 編集
+
+    @State private var selectedMode: NotificationMode
+    @State private var selectedWeekday: Int
+    @State private var selectedTime: Date
 
     private let weekdays = [
         (2, "月曜日"), (3, "火曜日"), (4, "水曜日"),
         (5, "木曜日"), (6, "金曜日"), (7, "土曜日"), (1, "日曜日")
     ]
+
+    init(editingEntry: ScheduleEntry? = nil) {
+        self.editingEntry = editingEntry
+        if let e = editingEntry {
+            _selectedMode = State(initialValue: e.modeEnum ?? .monday)
+            _selectedWeekday = State(initialValue: e.weekday)
+            var comp = DateComponents()
+            comp.hour = e.hour
+            comp.minute = e.minute
+            _selectedTime = State(initialValue: Calendar.current.date(from: comp) ?? Date())
+        } else {
+            _selectedMode = State(initialValue: .monday)
+            _selectedWeekday = State(initialValue: 2)
+            _selectedTime = State(initialValue: Date())
+        }
+    }
 
     var body: some View {
         NavigationView {
@@ -479,10 +517,14 @@ struct AddScheduleSheet: View {
                         let cal = Calendar.current
                         let h = cal.component(.hour, from: selectedTime)
                         let m = cal.component(.minute, from: selectedTime)
-                        notif.addSchedule(mode: selectedMode, weekday: selectedWeekday, hour: h, minute: m)
+                        if let editing = editingEntry {
+                            notif.updateSchedule(id: editing.id, mode: selectedMode, weekday: selectedWeekday, hour: h, minute: m)
+                        } else {
+                            notif.addSchedule(mode: selectedMode, weekday: selectedWeekday, hour: h, minute: m)
+                        }
                         dismiss()
                     } label: {
-                        Text("追加する")
+                        Text(editingEntry == nil ? "追加する" : "保存する")
                             .font(.system(size: 16, weight: .bold))
                             .frame(maxWidth: .infinity)
                             .padding()
@@ -493,8 +535,14 @@ struct AddScheduleSheet: View {
                     .padding(.horizontal)
                 }
             }
-            .navigationTitle("スケジュール追加")
+            .navigationTitle(editingEntry == nil ? "スケジュール追加" : "スケジュール編集")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("キャンセル") { dismiss() }
+                        .foregroundColor(.gray)
+                }
+            }
         }
     }
 }
